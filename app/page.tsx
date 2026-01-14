@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { SITE_URL } from '@/lib/siteConfig';
 import { PlasmaButtonController } from './components/PlasmaButtonController';
 import { ElectricSparkController } from './components/ElectricSparkController';
 import GlobalPlasmaController from './components/GlobalPlasmaController';
@@ -133,16 +132,16 @@ export default function Home() {
           <nav className="sidebar-nav">
             <div className="sidebar-group">
               <div className="sidebar-group-label">MAIN</div>
-              <Link href={`${SITE_URL}/`} className="sidebar-nav-item plasma-glow-btn active">
+              <Link href="/" className="sidebar-nav-item plasma-glow-btn active">
                 <span>🏠 Home</span>
               </Link>
-              <Link href={`${SITE_URL}/leaderboard`} className="sidebar-nav-item plasma-glow-btn">
+              <Link href="/leaderboard" className="sidebar-nav-item plasma-glow-btn">
                 <span>📊 Leaderboard</span>
               </Link>
-              <Link href={`${SITE_URL}/slot-battles`} className="sidebar-nav-item plasma-glow-btn">
+              <Link href="/slot-battles" className="sidebar-nav-item plasma-glow-btn">
                 <span>⚔️ Slot Battles</span>
               </Link>
-              <Link href={`${SITE_URL}/live-events`} className="sidebar-nav-item plasma-glow-btn">
+              <Link href="/live-events" className="sidebar-nav-item plasma-glow-btn">
                 <span>🔴 Live Events</span>
               </Link>
             </div>
