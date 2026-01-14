@@ -1,0 +1,60 @@
+/* Social Links */
+.social-section {
+  padding: 3rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(120, 170, 255, 0.1);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(30, 60, 120, 0.15);
+  border: 1.5px solid rgba(120, 170, 255, 0.2);
+  color: #a8c5ff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.social-link:hover {
+  background: rgba(30, 60, 120, 0.3);
+  border-color: rgba(120, 170, 255, 0.5);
+  color: #e6f0ff;
+  box-shadow: 
+    0 0 30px rgba(80, 140, 255, 0.3),
+    inset 0 0 15px rgba(120, 170, 255, 0.1);
+}
+
+.social-link:active {
+  box-shadow: 
+    0 0 20px rgba(80, 140, 255, 0.2),
+    inset 0 0 15px rgba(120, 170, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .social-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .social-links {
+    gap: 1.5rem;
+  }
+
+  .social-link {
+    width: 45px;
+    height: 45px;
+    font-size: 1.25rem;
+  }
+}

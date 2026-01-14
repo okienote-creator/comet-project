@@ -1,0 +1,1356 @@
+/* Global Plasma Button Styles */
+
+.plasma-btn {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.08);   
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  color: white;
+  /* DEBUG: Unmissable neon debug border */
+  outline: 6px solid magenta !important;
+  border: 3px solid cyan !important;
+  box-shadow: 0 0 25px magenta, inset 0 0 15px rgba(0,255,255,0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.plasma-btn:hover {
+  /* DEBUG: Background flash on hover */
+  background: rgba(0, 255, 255, 0.25) !important;
+  box-shadow: 0 0 50px magenta, 0 0 80px cyan, inset 0 0 30px rgba(0,255,255,0.5) !important;
+}
+
+.plasma-btn::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle at var(--cx, 50%) var(--cy, 50%),
+    rgba(0, 180, 255, 0.6),
+    rgba(120, 0, 255, 0.2),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(25px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.plasma-btn:hover::before {
+  opacity: 1;
+}
+
+.plasma-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Electric Spark Styles */
+.electric-spark {
+  position: fixed;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+@keyframes spark-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.electric-spark {
+  animation: spark-flicker 0.1s ease-in-out;
+  box-shadow: 
+    0 0 4px currentColor,
+    0 0 8px currentColor,
+    0 0 12px rgba(0, 180, 255, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .electric-spark {
+    display: none;
+  }
+}
+
+/* Plasma Border Wrapper */
+@keyframes electric-border-glow {
+  0%, 100% {
+    border-color: #00eaff;
+    box-shadow: 
+      0 0 4px #00eaff,
+      0 0 8px #00eaff,
+      0 0 12px #00eaff,
+      0 0 20px rgba(0, 234, 255, 0.6),
+      0 0 30px rgba(0, 234, 255, 0.3),
+      inset 0 0 4px rgba(0, 234, 255, 0.2);
+  }
+  25% {
+    border-color: #3d7fff;
+    box-shadow: 
+      0 0 4px #3d7fff,
+      0 0 8px #5a9fff,
+      0 0 12px #5a9fff,
+      0 0 20px rgba(127, 100, 255, 0.5),
+      0 0 30px rgba(127, 100, 255, 0.25),
+      inset 0 0 4px rgba(127, 100, 255, 0.15);
+  }
+  50% {
+    border-color: #7f00ff;
+    box-shadow: 
+      0 0 4px #7f00ff,
+      0 0 8px #8f1fff,
+      0 0 12px #9f3fff,
+      0 0 20px rgba(127, 0, 255, 0.6),
+      0 0 30px rgba(127, 0, 255, 0.3),
+      inset 0 0 4px rgba(127, 0, 255, 0.2);
+  }
+  75% {
+    border-color: #ff4fd8;
+    box-shadow: 
+      0 0 4px #ff4fd8,
+      0 0 8px #ff6fe0,
+      0 0 12px #ff8fe8,
+      0 0 20px rgba(255, 79, 216, 0.5),
+      0 0 30px rgba(255, 79, 216, 0.25),
+      inset 0 0 4px rgba(255, 79, 216, 0.15);
+  }
+  100% {
+    border-color: #00eaff;
+    box-shadow: 
+      0 0 4px #00eaff,
+      0 0 8px #00eaff,
+      0 0 12px #00eaff,
+      0 0 20px rgba(0, 234, 255, 0.6),
+      0 0 30px rgba(0, 234, 255, 0.3),
+      inset 0 0 4px rgba(0, 234, 255, 0.2);
+  }
+}
+
+.plasma-border-wrap {
+  position: relative;
+  display: inline-block;
+  border: 2px solid #00eaff;
+  border-radius: 18px;
+  overflow: visible;
+  animation: electric-border-glow 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(0, 234, 255, 0.4));
+}
+
+/* Plasma Border Wrapper */
+@keyframes electric-border-glow {
+  0%, 100% {
+    border-color: #00eaff;
+    box-shadow: 
+      0 0 4px #00eaff,
+      0 0 8px #00eaff,
+      0 0 12px #00eaff,
+      0 0 20px rgba(0, 234, 255, 0.6),
+      0 0 30px rgba(0, 234, 255, 0.3),
+      inset 0 0 4px rgba(0, 234, 255, 0.2);
+  }
+  25% {
+    border-color: #3d7fff;
+    box-shadow: 
+      0 0 4px #3d7fff,
+      0 0 8px #5a9fff,
+      0 0 12px #5a9fff,
+      0 0 20px rgba(127, 100, 255, 0.5),
+      0 0 30px rgba(127, 100, 255, 0.25),
+      inset 0 0 4px rgba(127, 100, 255, 0.15);
+  }
+  50% {
+    border-color: #7f00ff;
+    box-shadow: 
+      0 0 4px #7f00ff,
+      0 0 8px #8f1fff,
+      0 0 12px #9f3fff,
+      0 0 20px rgba(127, 0, 255, 0.6),
+      0 0 30px rgba(127, 0, 255, 0.3),
+      inset 0 0 4px rgba(127, 0, 255, 0.2);
+  }
+  75% {
+    border-color: #ff4fd8;
+    box-shadow: 
+      0 0 4px #ff4fd8,
+      0 0 8px #ff6fe0,
+      0 0 12px #ff8fe8,
+      0 0 20px rgba(255, 79, 216, 0.5),
+      0 0 30px rgba(255, 79, 216, 0.25),
+      inset 0 0 4px rgba(255, 79, 216, 0.15);
+  }
+  100% {
+    border-color: #00eaff;
+    box-shadow: 
+      0 0 4px #00eaff,
+      0 0 8px #00eaff,
+      0 0 12px #00eaff,
+      0 0 20px rgba(0, 234, 255, 0.6),
+      0 0 30px rgba(0, 234, 255, 0.3),
+      inset 0 0 4px rgba(0, 234, 255, 0.2);
+  }
+}
+
+.plasma-border-wrap {
+  position: relative;
+  display: inline-block;
+  border: 2px solid #00eaff;
+  border-radius: 18px;
+  overflow: visible;
+  animation: electric-border-glow 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(0, 234, 255, 0.4));
+}
+
+/* Plasma Beam Button - Aggressive welding arc effect (Hero buttons) */
+@keyframes plasma-cycle {
+  0% { filter: hue-rotate(0deg) brightness(1.3) saturate(1.5); }
+  20% { filter: hue-rotate(15deg) brightness(1.5) saturate(1.8); }
+  40% { filter: hue-rotate(45deg) brightness(1.6) saturate(2); }
+  60% { filter: hue-rotate(90deg) brightness(1.4) saturate(1.7); }
+  80% { filter: hue-rotate(45deg) brightness(1.5) saturate(1.8); }
+  100% { filter: hue-rotate(0deg) brightness(1.3) saturate(1.5); }
+}
+
+@keyframes beam-flicker {
+  0%, 100% { opacity: 0.85; }
+  25% { opacity: 1; }
+  50% { opacity: 0.9; }
+  75% { opacity: 1; }
+}
+
+@keyframes beam-strands {
+  0% { clip-path: polygon(50% 50%, 45% 0%, 55% 0%); filter: blur(1px); }
+  15% { clip-path: polygon(50% 50%, 42% 0%, 58% 0%); filter: blur(2px); }
+  30% { clip-path: polygon(50% 50%, 48% 0%, 52% 0%); filter: blur(1px); }
+  45% { clip-path: polygon(50% 50%, 43% 0%, 57% 0%); filter: blur(1.5px); }
+  60% { clip-path: polygon(50% 50%, 46% 0%, 54% 0%); filter: blur(2px); }
+  75% { clip-path: polygon(50% 50%, 44% 0%, 56% 0%); filter: blur(1px); }
+  100% { clip-path: polygon(50% 50%, 45% 0%, 55% 0%); filter: blur(1px); }
+}
+
+@keyframes beam-pulse {
+  0%, 100% { box-shadow: 0 0 0px rgba(0, 255, 255, 0); }
+  50% { box-shadow: 0 0 30px rgba(0, 255, 255, 0.5); }
+}
+
+/* Phase 3: Discharge animations */
+@keyframes discharge-flash {
+  0% { 
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: inset 0 0 0px rgba(255, 255, 255, 0);
+  }
+  10% { 
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 1);
+  }
+  25% { 
+    background-color: rgba(255, 200, 0, 0.2);
+    box-shadow: inset 0 0 50px rgba(255, 200, 0, 0.6), 0 0 80px rgba(255, 150, 0, 0.8);
+  }
+  50% { 
+    background-color: rgba(200, 100, 255, 0.15);
+    box-shadow: inset 0 0 30px rgba(200, 100, 255, 0.4), 0 0 40px rgba(200, 100, 255, 0.5);
+  }
+  100% { 
+    background-color: rgba(10, 20, 60, 0.2);
+    box-shadow: inset 0 0 15px rgba(0, 200, 255, 0.15);
+  }
+}
+
+@keyframes shockwave {
+  0% {
+    box-shadow: 
+      0 0 0px 0px rgba(0, 255, 255, 0.8),
+      inset 0 0 0px 0px rgba(0, 255, 255, 0.4);
+  }
+  100% {
+    box-shadow: 
+      0 0 30px 20px rgba(0, 255, 255, 0),
+      inset 0 0 30px 10px rgba(0, 255, 255, 0);
+  }
+}
+
+@keyframes electric-flicker {
+  0%   { opacity: 0.25; }
+  50%  { opacity: 0.45; }
+  100% { opacity: 0.3; }
+}
+
+/* Fire animations */
+@keyframes fire-rotation {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes fire-core-flicker {
+  0% { opacity: 0.85; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-2px); }
+  100% { opacity: 0.9; transform: translateY(0); }
+}
+
+.plasma-beam-btn {
+  position: relative;
+  z-index: 1;
+  background: rgba(10, 20, 60, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  color: #e0f0ff;
+  border: 2px solid rgba(0, 200, 255, 0.6);
+  box-shadow: 
+    0 0 20px rgba(0, 150, 255, 0.4),
+    inset 0 0 15px rgba(0, 200, 255, 0.15);
+  transition: all 0.1s ease;
+  overflow: hidden;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  --discharge-active: 0;
+  transform: translate(var(--pull-x, 0), var(--pull-y, 0));
+  isolation: isolate;
+}
+
+/* Phase 3: Discharge state */
+.plasma-beam-btn[style*="--discharge-active: 1"] {
+  animation: discharge-flash 0.15s cubic-bezier(0.4, 0, 0.6, 1), shockwave 0.15s ease-out;
+}
+
+
+.plasma-beam-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 50% 120%,
+      rgba(255,255,255,0.9),
+      rgba(255,120,255,0.7),
+      rgba(120,80,255,0.6),
+      rgba(0,200,255,0.5),
+      transparent 70%);
+  filter: blur(18px);
+  animation: fire-core-flicker 2.5s infinite ease-in-out;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.plasma-beam-btn::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background:
+    conic-gradient(
+      from 0deg,
+      #00eaff,
+      #7a5cff,
+      #ff4fd8,
+      #ff8cff,
+      #00eaff
+    );
+  filter: blur(14px) brightness(1.4);
+  animation: fire-rotation 3s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Electric Neon Border - Visible flowing energy */
+@keyframes border-flow-blue-purple-pink {
+  0%, 100% { 
+    box-shadow: 
+      0 0 2px #00eaff,
+      0 0 4px #00eaff,
+      0 0 8px #00eaff,
+      0 0 12px #00eaff,
+      0 0 16px #00eaff,
+      0 0 24px rgba(0, 234, 255, 0.8),
+      0 0 40px rgba(0, 234, 255, 0.5),
+      inset 0 0 2px rgba(0, 234, 255, 0.3);
+  }
+  25% { 
+    box-shadow: 
+      0 0 2px #3d7fff,
+      0 0 4px #3d7fff,
+      0 0 8px #5a9fff,
+      0 0 12px #5a9fff,
+      0 0 16px #7fbfff,
+      0 0 24px rgba(127, 100, 255, 0.7),
+      0 0 40px rgba(127, 100, 255, 0.4),
+      inset 0 0 2px rgba(127, 100, 255, 0.3);
+  }
+  50% { 
+    box-shadow: 
+      0 0 2px #7f00ff,
+      0 0 4px #7f00ff,
+      0 0 8px #8f1fff,
+      0 0 12px #9f3fff,
+      0 0 16px #bf7fff,
+      0 0 24px rgba(127, 0, 255, 0.8),
+      0 0 40px rgba(127, 0, 255, 0.5),
+      inset 0 0 2px rgba(127, 0, 255, 0.3);
+  }
+  75% { 
+    box-shadow: 
+      0 0 2px #ff4fd8,
+      0 0 4px #ff4fd8,
+      0 0 8px #ff6fe0,
+      0 0 12px #ff8fe8,
+      0 0 16px #ffbff0,
+      0 0 24px rgba(255, 79, 216, 0.7),
+      0 0 40px rgba(255, 79, 216, 0.4),
+      inset 0 0 2px rgba(255, 79, 216, 0.3);
+  }
+  100% { 
+    box-shadow: 
+      0 0 2px #00eaff,
+      0 0 4px #00eaff,
+      0 0 8px #00eaff,
+      0 0 12px #00eaff,
+      0 0 16px #00eaff,
+      0 0 24px rgba(0, 234, 255, 0.8),
+      0 0 40px rgba(0, 234, 255, 0.5),
+      inset 0 0 2px rgba(0, 234, 255, 0.3);
+  }
+}
+
+@keyframes border-surge {
+  0%, 100% { 
+    filter: brightness(1);
+    box-shadow: 
+      0 0 2px #00eaff,
+      0 0 4px #00eaff,
+      0 0 8px #00eaff,
+      0 0 12px #00eaff,
+      0 0 16px #00eaff,
+      0 0 24px rgba(0, 234, 255, 0.8),
+      0 0 40px rgba(0, 234, 255, 0.5);
+  }
+  50% {
+    filter: brightness(1.6);
+    box-shadow: 
+      0 0 4px #00ffff,
+      0 0 8px #00ffff,
+      0 0 16px #00ffff,
+      0 0 24px #00ffff,
+      0 0 32px #00ffff,
+      0 0 48px rgba(0, 255, 255, 1),
+      0 0 80px rgba(0, 255, 255, 0.8);
+  }
+}
+
+.plasma-beam-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.08) 0px,
+      rgba(255, 255, 255, 0.12) 2px,
+      rgba(255, 255, 255, 0.02) 4px
+    ),
+    conic-gradient(
+      from calc(var(--beam-angle, 0deg) - 30deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+      rgba(0, 255, 255, calc(0.5 * var(--proximity, 0) * var(--proximity, 0))),
+      rgba(100, 200, 255, calc(0.3 * var(--proximity, 0) * var(--proximity, 0))),
+      rgba(200, 100, 255, calc(0.2 * var(--proximity, 0) * var(--proximity, 0))),
+      rgba(255, 150, 200, calc(0.1 * var(--proximity, 0) * var(--proximity, 0))),
+      transparent 50%
+    );
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(1px);
+  border-radius: 14px;
+  animation: 
+    plasma-cycle 2.5s ease-in-out infinite reverse,
+    electric-flicker 0.12s steps(2) infinite;
+  mix-blend-mode: screen;
+}
+
+/* Phase 2: Electric Arc Overlay - Thin, sharp, jagged beam */
+@keyframes arc-jag {
+  0%, 100% { 
+    clip-path: polygon(0% 48%, 3% 47%, 6% 49%, 9% 46%, 12% 50%, 15% 47%, 18% 49%, 21% 46%, 24% 50%, 27% 47%, 30% 49%, 33% 46%, 36% 50%, 39% 47%, 42% 49%, 45% 46%, 48% 50%, 51% 47%, 54% 49%, 57% 46%, 60% 50%, 63% 47%, 66% 49%, 69% 46%, 72% 50%, 75% 47%, 78% 49%, 81% 46%, 84% 50%, 87% 47%, 90% 49%, 93% 46%, 96% 50%, 100% 48%, 100% 52%, 96% 52%, 93% 54%, 90% 51%, 87% 53%, 84% 50%, 81% 54%, 78% 51%, 75% 53%, 72% 50%, 69% 54%, 66% 51%, 63% 53%, 60% 50%, 57% 54%, 54% 51%, 51% 53%, 48% 50%, 45% 54%, 42% 51%, 39% 53%, 36% 50%, 33% 54%, 30% 51%, 27% 53%, 24% 50%, 21% 54%, 18% 51%, 15% 53%, 12% 50%, 9% 54%, 6% 51%, 3% 53%, 0% 52%);
+  }
+  50% { 
+    clip-path: polygon(0% 49%, 3% 46%, 6% 50%, 9% 47%, 12% 49%, 15% 46%, 18% 50%, 21% 47%, 24% 49%, 27% 46%, 30% 50%, 33% 47%, 36% 49%, 39% 46%, 42% 50%, 45% 47%, 48% 49%, 51% 46%, 54% 50%, 57% 47%, 60% 49%, 63% 46%, 66% 50%, 69% 47%, 72% 49%, 75% 46%, 78% 50%, 81% 47%, 84% 49%, 87% 46%, 90% 50%, 93% 47%, 96% 49%, 100% 46%, 100% 54%, 96% 51%, 93% 54%, 90% 51%, 87% 54%, 84% 51%, 81% 53%, 78% 50%, 75% 54%, 72% 51%, 69% 51%, 66% 50%, 63% 54%, 60% 51%, 57% 53%, 54% 50%, 51% 54%, 48% 51%, 45% 53%, 42% 50%, 39% 54%, 36% 51%, 33% 53%, 30% 50%, 27% 54%, 24% 51%, 21% 53%, 18% 50%, 15% 54%, 12% 51%, 9% 53%, 6% 50%, 3% 54%, 0% 51%);
+  }
+}
+
+/* Electric Neon Border - Flowing energy effect */
+@keyframes electric-border-flow {
+  0% {
+    box-shadow: 
+      0 0 8px rgba(124, 199, 255, calc(0.4 * var(--proximity, 0.1))),
+      0 0 16px rgba(124, 199, 255, calc(0.3 * var(--proximity, 0.1))),
+      0 0 24px rgba(168, 85, 247, calc(0.25 * var(--proximity, 0.1))),
+      0 0 32px rgba(168, 85, 247, calc(0.15 * var(--proximity, 0.1))),
+      0 0 40px rgba(236, 72, 153, calc(0.1 * var(--proximity, 0.1)));
+  }
+  33% {
+    box-shadow: 
+      0 0 12px rgba(168, 85, 247, calc(0.45 * var(--proximity, 0.1))),
+      0 0 20px rgba(168, 85, 247, calc(0.35 * var(--proximity, 0.1))),
+      0 0 28px rgba(236, 72, 153, calc(0.3 * var(--proximity, 0.1))),
+      0 0 36px rgba(236, 72, 153, calc(0.2 * var(--proximity, 0.1))),
+      0 0 44px rgba(124, 199, 255, calc(0.12 * var(--proximity, 0.1)));
+  }
+  66% {
+    box-shadow: 
+      0 0 10px rgba(236, 72, 153, calc(0.4 * var(--proximity, 0.1))),
+      0 0 18px rgba(236, 72, 153, calc(0.32 * var(--proximity, 0.1))),
+      0 0 26px rgba(124, 199, 255, calc(0.28 * var(--proximity, 0.1))),
+      0 0 34px rgba(124, 199, 255, calc(0.18 * var(--proximity, 0.1))),
+      0 0 42px rgba(168, 85, 247, calc(0.11 * var(--proximity, 0.1)));
+  }
+  100% {
+    box-shadow: 
+      0 0 8px rgba(124, 199, 255, calc(0.4 * var(--proximity, 0.1))),
+      0 0 16px rgba(124, 199, 255, calc(0.3 * var(--proximity, 0.1))),
+      0 0 24px rgba(168, 85, 247, calc(0.25 * var(--proximity, 0.1))),
+      0 0 32px rgba(168, 85, 247, calc(0.15 * var(--proximity, 0.1))),
+      0 0 40px rgba(236, 72, 153, calc(0.1 * var(--proximity, 0.1)));
+  }
+}
+
+/* Enhanced glow on discharge */
+@keyframes electric-border-surge {
+  0% {
+    box-shadow: 
+      0 0 8px rgba(124, 199, 255, calc(0.4 * var(--proximity, 0.1))),
+      0 0 16px rgba(124, 199, 255, calc(0.3 * var(--proximity, 0.1))),
+      0 0 24px rgba(168, 85, 247, calc(0.25 * var(--proximity, 0.1))),
+      0 0 32px rgba(168, 85, 247, calc(0.15 * var(--proximity, 0.1))),
+      0 0 40px rgba(236, 72, 153, calc(0.1 * var(--proximity, 0.1)));
+  }
+  50% {
+    box-shadow: 
+      0 0 16px rgba(124, 199, 255, 0.8),
+      0 0 32px rgba(124, 199, 255, 0.6),
+      0 0 48px rgba(168, 85, 247, 0.5),
+      0 0 64px rgba(168, 85, 247, 0.3),
+      0 0 80px rgba(236, 72, 153, 0.2);
+  }
+  100% {
+    box-shadow: 
+      0 0 8px rgba(124, 199, 255, calc(0.4 * var(--proximity, 0.1))),
+      0 0 16px rgba(124, 199, 255, calc(0.3 * var(--proximity, 0.1))),
+      0 0 24px rgba(168, 85, 247, calc(0.25 * var(--proximity, 0.1))),
+      0 0 32px rgba(168, 85, 247, calc(0.15 * var(--proximity, 0.1))),
+      0 0 40px rgba(236, 72, 153, calc(0.1 * var(--proximity, 0.1)));
+  }
+}
+
+.plasma-beam-btn:hover {
+  background: rgba(0, 80, 150, 0.4);
+  border-color: rgba(0, 255, 255, 1);
+  box-shadow: 
+    0 0 40px rgba(0, 200, 255, 0.8),
+    0 0 80px rgba(100, 50, 255, 0.5),
+    inset 0 0 30px rgba(0, 200, 255, 0.3),
+    0 0 100px rgba(0, 150, 255, 0.3);
+  transform: translateY(-3px);
+  text-shadow: 0 0 20px rgba(0, 200, 255, 0.6);
+  animation: beam-pulse 0.5s ease-in-out infinite;
+}
+
+.plasma-beam-btn:active {
+  transform: translateY(-1px);
+}
+
+.plasma-beam-btn span {
+  position: relative;
+  z-index: 3;
+}
+
+/* Plasma Glow Button - Subtle glow effect (Navigation/Secondary buttons) */
+.plasma-glow-btn {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  color: white;
+  /* Subtle glow, no debug borders */
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(0,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.plasma-glow-btn:hover {
+  /* Subtle hover effect */
+  background: rgba(0, 255, 255, 0.15);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4), inset 0 0 15px rgba(0,255,255,0.2);
+}
+
+.plasma-glow-btn::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle at var(--cx, 50%) var(--cy, 50%),
+    rgba(0, 200, 255, 0.4),
+    rgba(100, 0, 255, 0.1),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.plasma-glow-btn:hover::before {
+  opacity: 1;
+}
+
+.plasma-glow-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+/* PLASMA BUTTON - MAIN TARGET */
+button.plasma-button[data-plasma="true"] {
+  background: black !important;
+  color: white !important;
+  border-radius: 18px;
+  padding: 18px 42px;
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
+  isolation: isolate;
+  box-shadow:
+    0 0 20px rgba(0,255,255,0.9),
+    0 0 40px rgba(150,0,255,0.9),
+    0 0 60px rgba(255,0,150,0.8);
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+button.plasma-button[data-plasma="true"]::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    #00f6ff,
+    #7a5cff,
+    #ff4fd8,
+    #ffb347,
+    #00f6ff
+  );
+  filter: blur(16px);
+  animation: plasma-fire-spin 2s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+button.plasma-button[data-plasma="true"] > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* === OUTER PROXIMITY GLOW (BEHIND BUTTON) === */
+.plasma-button {
+  position: relative;
+  z-index: 1;
+}
+
+/* OUTER PURPLE GLOW — MOVE + STRETCH + DISTANCE INTENSITY */
+.plasma-button::after {
+  content: "";
+  position: absolute;
+  inset: -60%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(180, 100, 255, 0.6),
+    rgba(130, 70, 220, 0.35) 35%,
+    transparent 72%
+  );
+  filter:
+    blur(60px)
+    brightness(var(--glow-brightness, 1));
+  opacity: var(--glow-opacity, 0);
+  pointer-events: none;
+  z-index: -2;
+
+  transform:
+    translate(var(--gx, 0px), var(--gy, 0px))
+    scale(var(--sx, 1), var(--sy, 1));
+
+  transition:
+    opacity 0.25s ease,
+    filter 0.15s ease,
+    transform 0.12s ease-out;
+}
+
+.plasma-button.glow-active::after {
+  opacity: var(--glow-opacity, 1);
+}
+
+.plasma-button .ultra-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -3;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(200, 140, 255, 0.8),
+    rgba(160, 90, 230, 0.4),
+    rgba(130, 60, 200, 0)
+  );
+
+  filter: blur(85px) brightness(var(--u-bright, 1));
+  opacity: var(--u-opacity, 0);
+
+  transform:
+    translate(var(--ugx, 0px), var(--ugy, 0px))
+    scale(var(--usx, 1), var(--usy, 1));
+
+  transition:
+    opacity 0.25s ease,
+    filter 0.15s ease,
+    transform 0.14s ease-out;
+
+  inset: -110%;
+}
+
+@keyframes plasma-fire-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* PAGE BURN TRANSITION EFFECT */
+.page-burn-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.page-burn-active {
+  animation: burn-start 1.2s ease-in forwards;
+}
+
+.burn-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+}
+
+.burn-layer-1 {
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(0, 246, 255, 0.8) 0%,
+    rgba(122, 92, 255, 0.6) 25%,
+    rgba(255, 79, 216, 0.5) 50%,
+    rgba(255, 179, 71, 0.4) 75%,
+    transparent 100%
+  );
+  animation: burn-expand-layer-1 1.2s ease-out forwards;
+  filter: blur(4px);
+}
+
+.burn-layer-2 {
+  background: conic-gradient(
+    from 0deg,
+    #00f6ff 0%,
+    #7a5cff 25%,
+    #ff4fd8 50%,
+    #ffb347 75%,
+    #ffffff 100%
+  );
+  animation: burn-expand-layer-2 1.2s ease-out forwards;
+  filter: blur(12px) brightness(1.6);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 100%,
+    0% 100%
+  );
+}
+
+.burn-layer-3 {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 200, 100, 0.7) 30%,
+    rgba(255, 100, 0, 0.3) 70%,
+    transparent 100%
+  );
+  animation: burn-expand-layer-3 1.2s ease-out forwards;
+  filter: blur(20px) brightness(2) contrast(1.5);
+  pointer-events: none;
+}
+
+.burn-layer-4 {
+  background: conic-gradient(
+    from 180deg,
+    rgba(255, 79, 216, 0.7) 0%,
+    rgba(122, 92, 255, 0.6) 45%,
+    rgba(0, 246, 255, 0.8) 100%
+  );
+  animation: burn-expand-layer-4 1.2s ease-out forwards;
+  filter: blur(18px) brightness(1.3) contrast(1.2);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.burn-smoke {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(100, 100, 150, 0.3) 0%,
+    rgba(50, 50, 80, 0.15) 50%,
+    transparent 100%
+  );
+  animation: burn-smoke-drift 1.2s ease-out forwards;
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.burn-distortion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: burn-heat-distort 1.2s ease-out forwards;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.burn-fractures {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.fracture-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.fracture-path {
+  fill: none;
+  stroke: #00f6ff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  animation: burn-fracture-crack 1.2s ease-out forwards, burn-fracture-glow 1.2s ease-out forwards;
+  filter: drop-shadow(0 0 8px rgba(0,246,255,0.6));
+}
+
+.burn-embers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 20;
+  overflow: hidden;
+}
+
+.ember {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffff00, #ff8800, #ff0000);
+  left: var(--ember-x);
+  top: var(--ember-y);
+  animation: burn-ember-shoot 1s ease-out forwards, burn-ember-flicker 0.3s ease-in-out infinite;
+  animation-delay: var(--ember-delay);
+  box-shadow: 0 0 12px rgba(255, 150, 0, 0.8), 0 0 24px rgba(255, 100, 0, 0.4);
+  filter: brightness(1.2);
+}
+
+.burn-flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  animation: burn-impact-flash 1.2s ease-out forwards;
+  pointer-events: none;
+  z-index: 25;
+}
+
+.burn-afterimage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: burn-afterimage-glow 1.2s ease-out forwards;
+  pointer-events: none;
+  z-index: 24;
+}
+
+@keyframes burn-start {
+  0% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  40% {
+    opacity: 0.7;
+    backdrop-filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    backdrop-filter: blur(40px);
+  }
+}
+
+@keyframes burn-expand-1 {
+  0% {
+    transform: scale(0.1) translate(-50%, -50%);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes burn-expand-2 {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+    clip-path: polygon(
+      45% 0%,
+      55% 0%,
+      100% 100%,
+      0% 100%
+    );
+  }
+  50% {
+    opacity: 1;
+    clip-path: polygon(
+      30% 10%,
+      70% 5%,
+      95% 85%,
+      5% 95%
+    );
+  }
+  100% {
+    transform: scale(3) rotate(180deg);
+    opacity: 0;
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
+
+@keyframes burn-tear-effect {
+  0% {
+    transform: scale(0) scaleY(0.5);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+    transform: scale(1.2) scaleY(1);
+  }
+  70% {
+    opacity: 0.8;
+    transform: scale(1.5) scaleY(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2) scaleY(1.2);
+  }
+}
+
+@keyframes burn-flash-sequence {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* SCREEN SHAKE ON BURN IGNITION */
+@keyframes page-burn-shake {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-3px, -3px); }
+  20% { transform: translate(3px, 2px); }
+  30% { transform: translate(-2px, 3px); }
+  40% { transform: translate(2px, -2px); }
+  50% { transform: translate(-1px, 1px); }
+  60% { transform: translate(1px, -1px); }
+  70% { transform: translate(-2px, 2px); }
+  80% { transform: translate(2px, -1px); }
+  90% { transform: translate(-1px, 0px); }
+}
+
+body.page-burn-shake {
+  animation: page-burn-shake 0.4s ease-in-out;
+}
+
+/* HEAT DISTORTION WAVE */
+@keyframes burn-heat-distort {
+  0% {
+    opacity: 0;
+    backdrop-filter: blur(0px) contrast(1);
+  }
+  30% {
+    opacity: 0.5;
+    backdrop-filter: blur(6px) contrast(1.1);
+  }
+  60% {
+    opacity: 0.8;
+    backdrop-filter: blur(14px) contrast(1.3);
+  }
+  85% {
+    opacity: 0.9;
+    backdrop-filter: blur(20px) contrast(1.5) brightness(0.9);
+  }
+  100% {
+    opacity: 0;
+    backdrop-filter: blur(8px) contrast(1);
+  }
+}
+
+/* SMOKE LAYER */
+@keyframes burn-smoke-drift {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  20% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.5) translateY(-40px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2) translateY(-80px);
+  }
+}
+
+/* ELECTRIC FRACTURE ANIMATION */
+@keyframes burn-fracture-crack {
+  0% {
+    opacity: 0;
+    stroke-dasharray: 0;
+  }
+  20% {
+    opacity: 1;
+    stroke-dasharray: 100;
+  }
+  50% {
+    opacity: 0.8;
+    stroke-dasharray: 200;
+  }
+  80% {
+    opacity: 0.6;
+    stroke-dasharray: 300;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes burn-fracture-glow {
+  0% { filter: glow(0px); }
+  40% { filter: drop-shadow(0 0 8px rgba(0,246,255,0.8)) drop-shadow(0 0 16px rgba(122,92,255,0.6)); }
+  70% { filter: drop-shadow(0 0 12px rgba(255,79,216,0.7)) drop-shadow(0 0 20px rgba(122,92,255,0.8)); }
+  100% { filter: drop-shadow(0 0 2px rgba(0,246,255,0.2)); }
+}
+
+/* EMBER PARTICLE EFFECT */
+@keyframes burn-ember-shoot {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  30% {
+    opacity: 0.9;
+    transform: translate(
+      calc(cos(var(--seed, 0)) * 60vw),
+      calc(sin(var(--seed, 0)) * 60vh)
+    ) scale(0.8);
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc(cos(var(--seed, 0)) * 100vw),
+      calc(sin(var(--seed, 0)) * 100vh)
+    ) scale(0.1);
+  }
+}
+
+@keyframes burn-ember-flicker {
+  0%, 100% { filter: brightness(1.5); }
+  50% { filter: brightness(0.8); }
+}
+
+/* ENHANCED BURN LAYERS WITH PARALLAX */
+@keyframes burn-expand-layer-1 {
+  0% {
+    transform: scale(0.05) translate(-50%, -50%);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+@keyframes burn-expand-layer-2 {
+  0% {
+    transform: scale(0.08) rotate(0deg);
+    opacity: 1;
+  }
+  35% {
+    transform: scale(1.5) rotate(45deg);
+    opacity: 0.85;
+  }
+  65% {
+    transform: scale(2.2) rotate(90deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(4) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes burn-expand-layer-3 {
+  0% {
+    transform: scale(0.1) rotate(-30deg);
+    opacity: 1;
+  }
+  45% {
+    transform: scale(1.8) rotate(20deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: scale(2.8) rotate(80deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(3.8) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes burn-expand-layer-4 {
+  0% {
+    transform: scale(0.06) rotate(60deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.6) rotate(120deg);
+    opacity: 0.75;
+  }
+  80% {
+    transform: scale(2.6) rotate(220deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(3.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* IMPACT FLASH + AFTERIMAGE */
+@keyframes burn-impact-flash {
+  0% { opacity: 0; }
+  82% { opacity: 0; }
+  85% { opacity: 1; }
+  90% { opacity: 0.2; }
+  100% { opacity: 0; }
+}
+
+@keyframes burn-afterimage-glow {
+  0% { opacity: 0; }
+  85% { opacity: 0; }
+  88% { opacity: 0.8; background: radial-gradient(circle, rgba(122,92,255,0.6), rgba(0,100,200,0.3)); }
+  100% { opacity: 0; }
+}
+
+/* 🔥 TEMP FORCE TEST — REMOVE AFTER */
+/* Plasma Button - The Right Way™ */
+@keyframes arcFlicker {
+  0% { filter: blur(0px); }
+  50% { filter: blur(1.5px); }
+  100% { filter: blur(0px); }
+}
+
+.plasma-button {
+  position: relative;
+  padding: 20px 48px;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  background: rgba(10, 20, 40, 0.6);
+  border-radius: 16px;
+  border: 1px solid rgba(120, 180, 255, 0.3);
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition: all 0.2s ease;
+}
+
+/* Plasma beam */
+.plasma-button::before {
+  content: "";
+  position: absolute;
+  inset: -60%;
+  background:
+    radial-gradient(
+      circle at var(--mx, 50%) var(--my, 50%),
+      #ffffff 0%,
+      #00f6ff 15%,
+      #3a7bff 30%,
+      #8b3cff 45%,
+      transparent 60%
+    );
+  filter: blur(22px);
+  opacity: 0;
+  transition: opacity 0.1s;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* Jagged electric flicker */
+.plasma-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(255, 255, 255, 0.4) 0deg,
+      transparent 8deg,
+      rgba(0, 255, 255, 0.3) 16deg,
+      transparent 24deg
+    );
+  opacity: 0;
+  animation: arcFlicker 0.12s infinite steps(2);
+  pointer-events: none;
+  border-radius: 16px;
+}
+
+.plasma-button:hover::before,
+.plasma-button:hover::after {
+  opacity: 1;
+}
+
+.plasma-button:hover {
+  background: rgba(20, 60, 100, 0.8);
+  border-color: rgba(120, 200, 255, 0.8);
+  box-shadow: 0 0 30px rgba(0, 150, 255, 0.4);
+}
+
+
+/* Plasma Glow Button - Subtle glow effect (Navigation/Secondary buttons) */
+.plasma-glow-btn {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  color: white;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(0,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.plasma-glow-btn:hover {
+  background: rgba(0, 255, 255, 0.15);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4), inset 0 0 15px rgba(0,255,255,0.2);
+}
+
+.plasma-glow-btn::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle at var(--cx, 50%) var(--cy, 50%),
+    rgba(0, 200, 255, 0.4),
+    rgba(100, 0, 255, 0.1),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.plasma-glow-btn:hover::before {
+  opacity: 1;
+}
+
+.plasma-glow-btn span {
+  position: relative;
+  z-index: 1;
+}
