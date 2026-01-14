@@ -1,4 +1,4 @@
-export const SITE_URL =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3000'
-    : 'https://vqsslots.com';
+export const siteConfig = {
+  name: "Vibe Queen Slots",
+  description: "Plasma-powered slot exploration",
+};
